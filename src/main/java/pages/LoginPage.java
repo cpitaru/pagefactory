@@ -10,10 +10,10 @@ public class LoginPage extends PageObject{
     @FindBy(xpath = "/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/a")
     private WebElement loginDropdown;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/form/input[1]")
+    @FindBy(xpath = "/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/form/input[1]")
     private WebElement eMailAddress;
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/form/input[2]")
+    @FindBy(xpath = "/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/form/input[2]")
     private WebElement password;
 
     @FindBy(xpath = "/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/form/div[3]/span/button")
@@ -42,8 +42,5 @@ public class LoginPage extends PageObject{
         loginButton.click();
         return new UserPage(driver);
     }
-
-
-
 
 }

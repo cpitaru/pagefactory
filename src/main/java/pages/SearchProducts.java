@@ -13,7 +13,7 @@ public class SearchProducts extends PageObject {
 
 
     public ProductPage clickOnProduct() {
-        driver.findElement(By.xpath("/html/body/div/div[3]/main/div[2]/div[1]/div[2]/ul/li[2]/div/div[1]/a/img")).click();
+        driver.findElement(By.xpath("/html/body/div/div[3]/main/div[2]/div[1]/div[2]/ul/li[2]/div/div[2]/h2/a")).click();
         return new ProductPage(driver);
     }
 

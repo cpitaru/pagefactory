@@ -1,6 +1,6 @@
-package searchproducts;
+package alltests.junittests.searchproducts;
 
-import base.FunctionalTest;
+import alltests.junittests.base.FunctionalTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.LoginPage;

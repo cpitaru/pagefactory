@@ -32,10 +32,10 @@ public class UserPage extends PageObject {
         this.driver = driver;
     }
 
-//    public UserPage clickOnUserDropdown(WebDriver driver) {
-//        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/a/div[3]/span")).click();
-//        return new UserPage(driver);
-//    }
+    public UserPage clickOnUserDropdown(WebDriver driver) {
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/a/div[3]/span")).click();
+        return new UserPage(driver);
+    }
 
 
     public SumarCont clickSumarContButton(WebDriver driver) {

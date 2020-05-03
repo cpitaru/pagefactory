@@ -1,6 +1,6 @@
-package login;
+package alltests.junittests.login;
 
-import base.FunctionalTest;
+import alltests.junittests.base.FunctionalTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -24,6 +24,9 @@ public class LoginTests extends FunctionalTest {
         UserPage userPage = loginPage.clickLoginButton();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         assertEquals("Contul meu", driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/a/div[3]/span")).getText());
+
+        LogoutPage logoutPage = userPage.clickLogoutButton(driver);
+        assertEquals("Vreau un cont nou",driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/h1")).getText());
     }
 
 }
