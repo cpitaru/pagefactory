@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class UserPage extends PageObject {
     private WebDriver driver;
@@ -39,7 +43,10 @@ public class UserPage extends PageObject {
 
 
     public SumarCont clickSumarContButton(WebDriver driver) {
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/ul/li[1]")).click();
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/ul/li[1]")));
+        WebElement sumarContBtn = driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/ul/li[1]"));
+        sumarContBtn.click();
         return new SumarCont(driver);
     }
 
@@ -61,6 +68,7 @@ public class UserPage extends PageObject {
     }
 
     public SearchProducts clickSearchButton(WebDriver driver) {
+
         WebElement clickedSearchButton = driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[4]/form/div/div[2]/button/div/div/div"));
         clickedSearchButton.click();
         return new SearchProducts(driver);
@@ -70,8 +78,14 @@ public class UserPage extends PageObject {
     public LogoutPage clickLogoutButton(WebDriver driver) {
 //        driver.findElement((By) logoutButton).click();
 //        return new LogoutPage(driver);
-        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/ul/li[10]")).click();
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/ul/li[10]/a")));
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div/div/div/div[3]/div[1]/div/div[2]/div/ul/li[10]/a")).click();
         return new LogoutPage(driver);
     }
 
+    public void waitForOferteZilniceToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[3]/main/div[2]/div/div/h3")));
+    }
 }

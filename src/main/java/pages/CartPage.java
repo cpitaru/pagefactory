@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage extends PageObject {
     private WebDriver driver;
@@ -34,5 +36,15 @@ public class CartPage extends PageObject {
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public void waitForTextToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[2]/main/div[3]/div/section/div/h2")));
+    }
+
+    public void waitForTextFromEmptyingTheCartToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[2]/main/div[3]/div/section/div/div/div/h3")));
     }
 }

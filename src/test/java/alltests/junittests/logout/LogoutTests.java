@@ -20,8 +20,8 @@ public class LogoutTests extends FunctionalTest {
         loginPage.enterPassword("Automation123!");
 
         UserPage userPage = loginPage.clickLoginButton();
-
         LogoutPage logoutPage = userPage.clickLogoutButton(driver);
+        logoutPage.waitForTextToLoad();
         assertEquals("Vreau un cont nou",driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/main/div[1]/h1")).getText());
     }
 }

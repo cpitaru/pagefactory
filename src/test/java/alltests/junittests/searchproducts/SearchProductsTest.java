@@ -2,6 +2,8 @@ package alltests.junittests.searchproducts;
 
 import alltests.junittests.base.FunctionalTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.SearchProducts;
@@ -24,7 +26,9 @@ public class SearchProductsTest extends FunctionalTest {
         userPage.enterProductNameOnSearchBar(driver,"casti gaming razer");
 
         SearchProducts searchProducts = userPage.clickSearchButton(driver);
-        assertEquals("Rezultate cautare", driver.findElement(By.xpath("/html/body/div/div[3]/main/div[2]/div[1]/div[1]/h1")).getText());
+        searchProducts.waitForTextToLoad();
+
+        assertEquals("Rezultate cautare", driver.findElement(By.xpath("/html/body/div/div[3]/main/div[2]/div[1]/div[1]/h1 ")).getText());
     }
 
 

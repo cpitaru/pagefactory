@@ -22,6 +22,7 @@ public class SumarContTests extends FunctionalTest {
         UserPage userPage = loginPage.clickLoginButton();
 
         SumarCont sumarCont = userPage.clickSumarContButton(driver);
+        sumarCont.waitForTextToLoad();
         assertEquals("Salut Cosmin Test", driver.findElement(By.xpath("/html/body/div/div[3]/main/div/div[1]/div[2]/div[1]/div/p[1]/strong")).getText());
     }
 }

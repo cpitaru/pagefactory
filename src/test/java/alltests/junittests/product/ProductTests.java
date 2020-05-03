@@ -1,9 +1,14 @@
 package alltests.junittests.product;
 
 import alltests.junittests.base.FunctionalTest;
+import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import pages.*;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -24,9 +29,11 @@ public class ProductTests extends FunctionalTest {
 
         SearchProducts searchProducts = userPage.clickSearchButton(driver);
 
+
         ProductPage productPage = searchProducts.clickOnProduct();
+        productPage.waitForTextToLoad();
         assertEquals("Casti Gaming RAZER Kraken Green 2019, stereo, 3.5mm, verde",
-                driver.findElement(By.xpath("/html/body/div/div[3]/main/div/div[2]/div[1]/div[1]/div/div[1]/h1/div")).getText());
+                driver.findElement(By.xpath("/html/body/div/div[3]/main/div/div[2]/div[1]/div[1]/div[1]/div[1]/h1/div")).getText());
     }
 
 }

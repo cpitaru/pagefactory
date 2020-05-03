@@ -27,6 +27,9 @@ public class ProductPage extends PageObject {
     private WebElement logoutButton;
 
     public void addToCart() {
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[3]/main/div/div[2]/div[1]/div[2]/div[2]/div/div/div[4]/div/div[1]/div[1]" +
+                "/div/div/button/div/div[2]/div")));
         driver.findElement(By.xpath("/html/body/div/div[3]/main/div/div[2]/div[1]/div[2]/div[2]/div/div/div[4]/div/div[1]/div[1]/div/div/button/div/div[2]/div")).click();
     }
 
@@ -64,8 +67,22 @@ public class ProductPage extends PageObject {
         return new LogoutPage(driver);
     }
 
+    public void waitForTextToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div[3]/main/div/div[2]/div[1]/div[1]/div[1]/div[1]/h1/div")));
+    }
+
     public ProductPage(WebDriver driver) {
         this.driver = driver;
     }
 
+    public void waitForProductToBeAddedInCart() {
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[1]/h2")));
+    }
+
+    public void waitForTextAfterAddingProductToCartToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[1]/h2")));
+    }
 }
